@@ -1,0 +1,34 @@
+<h1>Show Block</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Block Number</th>
+      <th>Nonce</th>
+      <th>Data</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= for block <- @blocks do %>
+    <tr>
+      <td><%= block.number %></td>
+      <td><%= block.nonce %></td>
+      <td>
+      <table>
+      <%= for num <- block.data do %>
+        <tr>
+          <td><%= num %></td>
+        </tr>
+      <% end %>
+      </table>
+      </td>
+    
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<canvas id="myChart" width="200" height="200"></canvas>
+
+<script>
+window.block_data = <%= raw(Poison.encode! (@blocks)) %>
+</script>

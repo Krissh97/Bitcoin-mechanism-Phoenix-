@@ -1,0 +1,28 @@
+<h1>Listing Halls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Users</th>
+      <th>Transactions</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for hall <- @halls do %>
+    <tr>
+      <td><%= hall.users %></td>
+      <td><%= hall.transactions %></td>
+
+      <td>
+        <%= link "Show", to: Routes.hall_path(@conn, :show, hall) %>
+        <%= link "Edit", to: Routes.hall_path(@conn, :edit, hall) %>
+        <%= link "Delete", to: Routes.hall_path(@conn, :delete, hall), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Hall", to: Routes.hall_path(@conn, :new) %></span>

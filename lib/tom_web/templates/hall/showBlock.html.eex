@@ -1,0 +1,18 @@
+<h1>Show Block</h1>
+
+<ul>
+
+  <li>
+    <strong>Hash:</strong>
+    <%= @block.hash %>
+  </li>
+
+  <li>
+    <strong>Nonce:</strong>
+    <%= @block.nonce %>
+  </li>
+
+</ul>
+
+<!--<span><%= link "Edit", to: Routes.hall_path(@conn, :edit, @hall) %></span>-->
+<span><%= link "Back", to: Routes.hall_path(@conn, :index) %></span>

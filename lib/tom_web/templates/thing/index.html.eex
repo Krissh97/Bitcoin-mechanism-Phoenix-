@@ -1,0 +1,28 @@
+<h1>Listing Things</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Users</th>
+      <th>Transactions</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for thing <- @things do %>
+    <tr>
+      <td><%= thing.users %></td>
+      <td><%= thing.transactions %></td>
+
+      <td>
+        <%= link "Show", to: Routes.thing_path(@conn, :show, thing) %>
+        <%= link "Edit", to: Routes.thing_path(@conn, :edit, thing) %>
+        <%= link "Delete", to: Routes.thing_path(@conn, :delete, thing), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Thing", to: Routes.thing_path(@conn, :new) %></span>
